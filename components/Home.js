@@ -1,5 +1,6 @@
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../reducers/user";
 import { useRouter } from "next/router";
@@ -30,7 +31,7 @@ function Home() {
           </button>
         </div>
       </div>
-      <div className={`${styles.centerColumn} ${styles.column}`}> 2nd </div>
+      <div className={`${styles.centerColumn} ${styles.column}`}> </div>
       <div className={`${styles.rightColumn} ${styles.column}`}>3rd</div>
     </main>
   );
