@@ -49,6 +49,7 @@ function Header() {
           setIsModalVisible(false);
         }
       });
+
   };
 
   const handleLogout = () => {
@@ -92,6 +93,7 @@ function Header() {
 
   return (
     <header className={styles.header}>
+     
         <button onClick={showModal}>Show Modal</button>
       
 
