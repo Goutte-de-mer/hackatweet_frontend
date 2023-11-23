@@ -6,6 +6,7 @@ import { logout } from "../reducers/user";
 import { useRouter } from "next/router";
 
 function Home() {
+  const router = useRouter();
   const dispatch = useDispatch();
   const username = useSelector((state) => state.user.username);
   const firstname = useSelector((state) => state.user.firstname);
@@ -13,7 +14,6 @@ function Home() {
 
   const handleLogout = () => {
     dispatch(logout());
-    const router = useRouter();
     router.replace("/Login");
   };
   return (
@@ -31,7 +31,10 @@ function Home() {
           </button>
         </div>
       </div>
-      <div className={`${styles.centerColumn} ${styles.column}`}> </div>
+      <div className={`${styles.centerColumn} ${styles.column}`}>
+        {" "}
+        <Link href="/login">login</Link>
+      </div>
       <div className={`${styles.rightColumn} ${styles.column}`}>3rd</div>
     </main>
   );

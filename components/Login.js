@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useState, React } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../reducers/user";
 import styles from "../styles/Login.module.css";
 import { Button, Popover } from "antd";
+import "antd/dist/antd.css";
+import { useRouter } from "next/router";
 
 function Login() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.value);
+  const router = useRouter();
 
-  // const [isModalVisible, setIsModalVisible] = useState(false);
   const [signUpUsername, setSignUpUsername] = useState("");
   const [signUpPassword, setSignUpPassword] = useState("");
   const [signInUsername, setSignInUsername] = useState("");
@@ -38,7 +39,7 @@ function Login() {
           setSignUpFirstname("");
           setSignUpUsername("");
           setSignUpPassword("");
-          // setIsModalVisible(false);
+          router.push("/");
         }
       });
   };
@@ -64,82 +65,76 @@ function Login() {
           );
           setSignInUsername("");
           setSignInPassword("");
-          // setIsModalVisible(false);
+          router.push("/");
         }
       });
   };
 
-  let modalSignup;
-  if (!user.token) {
-    modalSignup = (
-      <div className={styles.registerContainer}>
-        <div className={styles.registerSection}>
-          <p>Sign-up</p>
-          <input
-            type="text"
-            placeholder="Firstname"
-            id="signUpFirstname"
-            onChange={(e) => setSignUpFirstname(e.target.value)}
-            value={signUpFirstname}
-          />
-          <input
-            type="text"
-            placeholder="Username"
-            id="signUpUsername"
-            onChange={(e) => setSignUpUsername(e.target.value)}
-            value={signUpUsername}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            id="signUpPassword"
-            onChange={(e) => setSignUpPassword(e.target.value)}
-            value={signUpPassword}
-          />
-          <button id="register" onClick={() => handleRegister()}>
-            Register
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  let modalSignIn;
-  if (!user.token) {
-    modalSignIn = (
+  let modalSignup = (
+    <div className={styles.registerContainer}>
       <div className={styles.registerSection}>
-        <p>Sign-in</p>
+        <p>Sign-up</p>
+        <input
+          type="text"
+          placeholder="Firstname"
+          id="signUpFirstname"
+          onChange={(e) => setSignUpFirstname(e.target.value)}
+          value={signUpFirstname}
+        />
         <input
           type="text"
           placeholder="Username"
-          id="signInUsername"
-          onChange={(e) => setSignInUsername(e.target.value)}
-          value={signInUsername}
+          id="signUpUsername"
+          onChange={(e) => setSignUpUsername(e.target.value)}
+          value={signUpUsername}
         />
         <input
           type="password"
           placeholder="Password"
-          id="signInPassword"
-          onChange={(e) => setSignInPassword(e.target.value)}
-          value={signInPassword}
+          id="signUpPassword"
+          onChange={(e) => setSignUpPassword(e.target.value)}
+          value={signUpPassword}
         />
-        <button id="connection" onClick={() => handleConnection()}>
-          Connect
+        <button id="register" onClick={() => handleRegister()}>
+          Register
         </button>
       </div>
-    );
-  }
+    </div>
+  );
+
+  let modalSignIn = (
+    <div className={styles.registerSection}>
+      <p>Sign-in</p>
+      <input
+        type="text"
+        placeholder="Username"
+        id="signInUsername"
+        onChange={(e) => setSignInUsername(e.target.value)}
+        value={signInUsername}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        id="signInPassword"
+        onChange={(e) => setSignInPassword(e.target.value)}
+        value={signInPassword}
+      />
+      <button id="connection" onClick={() => handleConnection()}>
+        Connect
+      </button>
+    </div>
+  );
 
   return (
-    <header className={styles.header}>
-      <Popover content={modalSignIn} title="Title" trigger="click">
-        <Button className={styles.lovedMoviesBtn}>Signin</Button>
+    <div className={styles.loginPage}>
+      <Popover content={modalSignIn} trigger="click">
+        <Button>Signin</Button>
       </Popover>
 
-      <Popover content={modalSignup} title="Title" trigger="click">
-        <Button className={styles.lovedMoviesBtn}>Signup</Button>
+      <Popover content={modalSignup} trigger="click">
+        <Button>Signup</Button>
       </Popover>
-    </header>
+    </div>
   );
 }
 
