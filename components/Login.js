@@ -132,7 +132,7 @@ function Login() {
       </Popover>
 
       <Popover content={modalSignup} trigger="click">
-        <Button>Signup</Button>
+        <Button>Signu</Button>
       </Popover>
     </div>
   );
