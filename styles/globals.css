@@ -3,14 +3,14 @@
   src: url(../assets/fonts/mont-heavy.ttf) format("truetype");
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 0;
   margin: 0;
   font-family: Verdana, sans-serif;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 h1,
@@ -27,4 +27,8 @@ button {
 
 button {
   cursor: pointer;
+}
+
+textarea {
+  font-family: Verdana, sans-serif;
 }

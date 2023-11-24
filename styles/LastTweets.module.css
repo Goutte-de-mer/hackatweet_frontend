@@ -1,0 +1,16 @@
+.tweetBtn {
+  border: 0;
+  padding: 13px 18px;
+  border-radius: 30px;
+  color: white;
+  background: #1d9bf0;
+  margin-top: 20px;
+}
+
+.tweetForm {
+  width: fit-content;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
