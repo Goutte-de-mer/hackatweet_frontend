@@ -32,3 +32,58 @@ button {
 textarea {
   font-family: Verdana, sans-serif;
 }
+
+button.ant-btn {
+  width: fit-content;
+  padding: 0;
+  height: fit-content;
+  border: 0;
+  border-radius: 50px;
+  box-shadow: none;
+  font-family: "mont-heavy", sans-serif;
+}
+
+.ant-btn span {
+  padding: 8px 80px;
+}
+
+button.signup-popover {
+  background-color: #1d9bf0;
+  color: white;
+}
+button.signup-popover:hover {
+  background-color: #1a86ce;
+  color: white;
+}
+button.signin-popover {
+  color: #1d9bf0;
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+button.signin-popover:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: white;
+}
+div.ant-popover-inner {
+  background-color: #16212e;
+  border-radius: 30px;
+}
+div.ant-popover-inner-content {
+  padding: 35px 50px;
+}
+div.ant-popover-inner-content div {
+  display: flex;
+  flex-direction: column;
+}
+.logoPopover {
+  width: 50px;
+  margin: 0 auto 30px auto;
+}
+
+div.ant-popover-inner-content div h2 {
+  color: white;
+}
+.ant-popover-arrow {
+  display: none !important;
+}

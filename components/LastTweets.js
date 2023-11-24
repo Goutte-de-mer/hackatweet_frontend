@@ -22,7 +22,6 @@ function LastTweets() {
       });
   }, []);
 
-  console.log(tweetInput.length);
   const handleChange = (e) => {
     if (e.target.value.length < 230) {
       setTweetInput(e.target.value);
@@ -31,29 +30,31 @@ function LastTweets() {
   };
 
   const handleNewTweet = () => {
-    fetch("http://localhost:3000", {
+    fetch("http://localhost:3000/tweets", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         content: tweetInput,
         token: userToken,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (!data.result) {
-            return;
-          }
-          dispatch(
-            addTweet({
-              firstname: data.tweet.content,
-              time: data.tweet.time,
-              likes: data.tweet.likes,
-              username: data.tweet.username,
-              content: data.tweet.content,
-            })
-          );
-        }),
-    });
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data.result) {
+          return;
+        }
+        console.log("data on click", data);
+
+        dispatch(
+          addTweet({
+            firstname: data.tweet.firstname,
+            time: data.tweet.time,
+            likes: data.tweet.likes,
+            username: data.tweet.username,
+            content: data.tweet.content,
+          })
+        );
+      });
   };
 
   function calculateElapsedTime(time) {
@@ -85,7 +86,11 @@ function LastTweets() {
           cols="70"
         />
         <span>{230 - tweetInput.length}/230</span>
-        <button onClick={() => handleNewTweet()} className={styles.tweetBtn}>
+        <button
+          type="button"
+          onClick={() => handleNewTweet()}
+          className={styles.tweetBtn}
+        >
           Tweet
         </button>
       </form>

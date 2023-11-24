@@ -74,7 +74,8 @@ const Login = () => {
   let modalSignup = (
     <div className={styles.registerContainer}>
       <div className={styles.registerSection}>
-        <p>Sign-up</p>
+        <img className="logoPopover" src="/twitter.png" alt="Logo" />
+        <h2>Create your Hackatweet account</h2>
         <input
           type="text"
           placeholder="Firstname"
@@ -129,22 +130,35 @@ const Login = () => {
   return (
     <div className={styles.loginPage}>
       <div className={styles.leftDiv}>
-        <Image src="/twitter.png" width={80} height={80} alt="Logo" />
-        
+        <Image src="/twitter.png" width={170} height={170} alt="Logo" />
       </div>
       <div className={styles.rightDiv}>
-        <div className={styles.topDiv}>
-          <Image src="/twitter.png" width={80} height={80} alt="logo en haut" />
+        <div className={styles.logo}>
+          <Image src="/twitter.png" width={50} height={50} alt="logo en haut" />
         </div>
-        <h1>See what's happening</h1>
-        <h2> Join Hackatweet today .</h2>
-        <Popover className={styles.popover} trigger="click">
-          <Button>Signup</Button>
-        </Popover>
-        <p>Already have an account</p>
-        <Popover className={styles.popover} content={modalSignIn} trigger="click">
-          <Button>Signin</Button>
-        </Popover>
+        <div className={styles.rightDivContent}>
+          <h1>
+            See what's <br /> happening
+          </h1>
+          <h2> Join Hackatweet today .</h2>
+          <div className={styles.popover_btns}>
+            <Popover
+              className="signup-popover"
+              content={modalSignup}
+              trigger="click"
+            >
+              <Button>Signup</Button>
+            </Popover>
+            <p>Already have an account?</p>
+            <Popover
+              className="signin-popover"
+              content={modalSignIn}
+              trigger="click"
+            >
+              <Button>Signin</Button>
+            </Popover>
+          </div>
+        </div>
       </div>
     </div>
   );
