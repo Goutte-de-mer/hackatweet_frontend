@@ -1,7 +1,62 @@
+
 .loginPage {
-  min-height: 100vh;
   display: flex;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
   background-color: antiquewhite;
 }
+
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-image: url('/tweet.png');
+  background-position: left center; 
+  background-repeat: no-repeat;
+  background-size: contain; 
+  height: 80px;
+  width: 100%;
+}
+
+.leftDiv {
+  width: 40%;
+  height: 100vh;
+  background-image:url(/tweet.png) ; 
+}
+
+.logo {
+  background-image: url('/logo.png');
+  background-size: contain;
+  height: 70%;
+}
+.rightDiv {
+  width: 60%;
+  height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.popover {
+  position: absolute;
+  padding: 50px;
+  width: 100PX;
+  height: 30px;
+  font-size:20px; 
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border-radius: 8px;
+}
+
+
+
+
+
+
+

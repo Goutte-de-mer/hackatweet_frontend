@@ -1,12 +1,13 @@
-import { useState, React } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { login } from "../reducers/user";
 import styles from "../styles/Login.module.css";
-import { Button, Popover } from "antd";
+import { Button, Popover } from "antd"; // Ajout de Image
 import "antd/dist/antd.css";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
-function Login() {
+const Login = () => {
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -127,15 +128,26 @@ function Login() {
 
   return (
     <div className={styles.loginPage}>
-      <Popover content={modalSignIn} trigger="click">
-        <Button>Signin</Button>
-      </Popover>
-
-      <Popover content={modalSignup} trigger="click">
-        <Button>Signu</Button>
-      </Popover>
+      <div className={styles.leftDiv}>
+        <Image src="/twitter.png" width={80} height={80} alt="Logo" />
+        
+      </div>
+      <div className={styles.rightDiv}>
+        <div className={styles.topDiv}>
+          <Image src="/twitter.png" width={80} height={80} alt="logo en haut" />
+        </div>
+        <h1>See what's happening</h1>
+        <h2> Join Hackatweet today .</h2>
+        <Popover className={styles.popover} trigger="click">
+          <Button>Signup</Button>
+        </Popover>
+        <p>Already have an account</p>
+        <Popover className={styles.popover} content={modalSignIn} trigger="click">
+          <Button>Signin</Button>
+        </Popover>
+      </div>
     </div>
   );
-}
+};
 
 export default Login;

@@ -18,8 +18,10 @@ function Home() {
     router.replace("/login");
   };
   return (
+ 
     <main className={styles.main}>
       <div className={`${styles.leftColumn} ${styles.column}`}>
+      <div className={styles.backgroundImage}></div>
         <Image src="/twitter.png" alt="Logo" width={50} height={50} />
         <div className={styles.userInfos}>
           <div className={styles.innerInfos}>
@@ -36,7 +38,7 @@ function Home() {
         </div>
       </div>
       <div className={`${styles.centerColumn} ${styles.column}`}>
-        {" "}
+      {" "}
         <Link href="/login">login</Link>
         <LastTweets />
       </div>
